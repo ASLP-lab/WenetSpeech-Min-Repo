@@ -1,7 +1,7 @@
 :root {
-  --paper: #f0ede5;
-  --ink: #171915;
-  --accent: #ef4b2f;
+  --paper: #ffffff;
+  --ink: #4f916f;
+  --accent: #4f916f;
 }
 
 * {
@@ -10,12 +10,8 @@
 
 body {
   margin: 0;
-  color: var(--ink);
-  background:
-    linear-gradient(rgba(23, 25, 21, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(23, 25, 21, 0.08) 1px, transparent 1px),
-    var(--paper);
-  background-size: 25vw 25vh;
+  color: #555b59;
+  background: linear-gradient(110deg, #50c8d1 0%, #49aeae 52%, #46a66c 100%) top / 100% 64px no-repeat, var(--paper);
 }
 
 main {
@@ -32,22 +28,22 @@ main {
 
 h1 {
   margin: 0;
-  font-family: "Instrument Serif", Georgia, serif;
-  font-size: clamp(4rem, 12vw, 10rem);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(2.6rem, 8vw, 4.5rem);
   font-weight: 400;
-  letter-spacing: -0.055em;
-  line-height: 0.9;
+  letter-spacing: -0.035em;
+  line-height: 1.18;
 }
 
 p {
-  margin: clamp(28px, 5vh, 52px) 0 0;
+  margin: clamp(24px, 4vh, 40px) 0 0;
   display: inline-flex;
   align-items: center;
   gap: 12px;
   font-family: "DM Mono", monospace;
   font-size: clamp(0.72rem, 1.2vw, 0.9rem);
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
@@ -75,11 +71,11 @@ p span {
 
 @media (max-width: 600px) {
   body {
-    background-size: 50vw 25vh;
+    background-size: 100% 64px, auto;
   }
 
   h1 {
-    font-size: clamp(3.6rem, 19vw, 6rem);
+    font-size: clamp(2.6rem, 9vw, 3.6rem);
   }
 }
 
