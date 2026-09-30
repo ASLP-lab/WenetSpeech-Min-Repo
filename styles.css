@@ -324,14 +324,6 @@ sup {
   background: #fff;
 }
 
-.dataset-sample-card h4 {
-  margin: 0 0 10px;
-  color: var(--green);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-}
-
 .dataset-sample-card audio {
   display: block;
   width: 100%;

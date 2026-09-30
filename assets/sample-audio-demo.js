@@ -13,9 +13,6 @@
     const card = document.createElement('article');
     card.className = 'dataset-sample-card';
 
-    const heading = document.createElement('h4');
-    heading.textContent = `Sample ${String(sampleNumber).padStart(2, '0')}`;
-
     const audio = document.createElement('audio');
     audio.controls = true;
     audio.preload = 'none';
@@ -45,7 +42,7 @@
       stats.appendChild(item);
     });
 
-    card.append(heading, audio, minnan, mandarin, stats);
+    card.append(audio, minnan, mandarin, stats);
     grid.appendChild(card);
   });
 
