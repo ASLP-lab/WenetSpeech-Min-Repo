@@ -3,22 +3,232 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f0ede5" />
-    <title>WenetSpeech-Min</title>
+    <meta name="theme-color" content="#ffffff" />
+    <meta
+      name="description"
+      content="WenetSpeech-Min: A Large-Scale Minnan Speech Corpus with Dual Transcriptions for Dialectal Speech Processing."
+    />
+    <title>WenetSpeech-Min: A Large-Scale Minnan Speech Corpus</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main>
-      <div class="content">
-        <h1>WenetSpeech-Min</h1>
-        <p><span aria-hidden="true"></span>Comming soon</p>
+    <div class="top-rule" aria-hidden="true"></div>
+    <header class="hero">
+      <div class="hero-inner">
+        <h1>
+          WenetSpeech-Min: A Large-Scale Minnan Speech Corpus<br class="title-break" />
+          with Dual Transcriptions for Dialectal Speech Processing
+        </h1>
+
+        <ul class="authors" aria-label="Authors">
+          <li>Haoyu Zhang<sup>1,*</sup></li>
+          <li>Chunjiang He<sup>1,*</sup></li>
+          <li>Hongtao Li<sup>2</sup></li>
+          <li>Zeyu Zhu<sup>1</sup></li>
+          <li>Qituan Shangguan<sup>2</sup></li>
+          <li>Chengyou Wang<sup>1</sup></li>
+          <li>Jingbin Hu<sup>1</sup></li>
+          <li>Ziyu Zhang<sup>1</sup></li>
+          <li>Bingshen Mu<sup>1</sup></li>
+          <li>Yanbo Wang<sup>3</sup></li>
+          <li>Shuai Wang<sup>2,4,8</sup></li>
+          <li>Jinhui Ye<sup>4</sup></li>
+          <li>Chengdong Liang<sup>4</sup></li>
+          <li>Binbin Zhang<sup>4</sup></li>
+          <li>Pengcheng Zhu<sup>4</sup></li>
+          <li>Chuang Ding<sup>5</sup></li>
+          <li>Qiangze Feng<sup>6</sup></li>
+          <li>Qingyang Hong<sup>7</sup></li>
+          <li>Liumeng Xue<sup>2,8</sup></li>
+          <li>Lei Xie<sup>1,†</sup></li>
+        </ul>
+
+        <ol class="affiliations" aria-label="Author affiliations">
+          <li><sup>1</sup>Audio, Speech and Language Processing Group (ASLP@NPU), Northwestern Polytechnical University</li>
+          <li><sup>2</sup>School of Intelligence Science and Technology, Nanjing University</li>
+          <li><sup>3</sup>University of New South Wales</li>
+          <li><sup>4</sup>WeNet Open Source Community</li>
+          <li><sup>5</sup>Moonstep AI</li>
+          <li><sup>6</sup>Nexdata</li>
+          <li><sup>7</sup>School of Informatics, Xiamen University</li>
+          <li><sup>8</sup>State Key Laboratory of Novel Software Technology, Nanjing University</li>
+        </ol>
+
+        <p class="author-notes"><span>*</span> Equal contribution <i aria-hidden="true">·</i> <span>†</span> Corresponding author</p>
+
+        <nav class="resource-links" aria-label="Project resources">
+          <a href="https://github.com/ASLP-lab/WenetSpeech-Min-Repo" target="_blank" rel="noreferrer">🐙 GitHub</a>
+          <a href="https://aslp-lab.github.io/WenetSpeech-Min-Repo/">🎤 Demo Page</a>
+        </nav>
       </div>
+    </header>
+
+    <nav class="section-nav" aria-label="Page sections">
+      <a href="#abstract">Abstract</a>
+      <a href="#pipeline">Data Construction Pipeline</a>
+      <a href="#dataset-overview">Dataset Overview</a>
+      <a href="#data-samples">Data Samples</a>
+      <a href="#asr">ASR Leaderboard</a>
+      <a href="#tts">TTS Leaderboard</a>
+    </nav>
+
+    <main class="paper-content">
+      <section id="abstract">
+        <h2>Abstract</h2>
+        <p>
+          Progress in dialectal speech technology is hindered by the scarcity of large-scale, real-world corpora. For Minnan speech, existing resources remain limited, and few provide paired Minnan and Mandarin transcripts at scale. To address these gaps, we introduce WenetSpeech-Min, an open-source corpus comprising around 10,000 hours of Minnan speech collected from diverse online media, with paired Minnan and Mandarin transcripts for every utterance. We further establish an automatic speech recognition (ASR) benchmark covering both Minnan and Mandarin transcripts and a text-to-speech synthesis (TTS) benchmark using Minnan transcripts, with manually verified evaluation sets for both tasks. To assess the effectiveness of the corpus, we train ASR and TTS models on WenetSpeech-Min and compare them with representative systems on the proposed benchmarks. The resulting models outperform the evaluated open-source models on most metrics and achieve competitive performance against commercial systems. We will release the corpus, benchmarks, and models to facilitate reproducible research on Minnan speech technology.
+        </p>
+      </section>
+
+      <section id="pipeline">
+        <h2>Data Construction Pipeline</h2>
+        <p>
+          The unified pipeline processes audio from heterogeneous online media and generates paired Minnan and Mandarin transcripts. Audio processing segments recordings into utterances and filters them by speech content and acoustic quality. For transcript generation, multiple Minnan ASR systems are combined to produce a dialect transcript, followed by subtitle extraction or translation to obtain its Mandarin counterpart.
+        </p>
+        <figure class="pipeline-figure">
+          <img
+            src="assets/data-construction-pipeline.png"
+            alt="WenetSpeech-Min data construction pipeline: media collection and segmentation, speech quality annotation, Minnan transcription with three ASR systems and ROVER, then Mandarin transcription using Qwen3 or OCR."
+            loading="lazy"
+          />
+          <figcaption>Overview of the WenetSpeech-Min data construction pipeline.</figcaption>
+        </figure>
+      </section>
+
+      <section id="dataset">
+        <h2>WenetSpeech-Min</h2>
+        <h3 id="dataset-overview">Dataset Overview</h3>
+        <ul>
+          <li>Approximately 10,000 hours of Minnan speech collected from multiple online platforms.</li>
+          <li>5,121,249 utterances, each paired with a Minnan transcript and a Mandarin transcript.</li>
+          <li>Audio spans diverse recording conditions, including clean sources and archival television material.</li>
+        </ul>
+
+        <div class="dataset-figures" aria-label="WenetSpeech-Min dataset distributions">
+          <figure>
+            <img src="assets/domain-distribution.png" alt="Distribution of sourced hours by content domain. Drama accounts for 54.7%, Audiobook 19.8%, Entertainment 13.9%, Reading 4.2%, Music Program 2.7%, Education 1.5%, Short Video 1.4%, Culture 1.2%, and Others 0.6%." loading="lazy" />
+            <figcaption>(a) Content-domain distribution over sourced hours.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/wv-mos-distribution.png" alt="WV-MOS score distributions by duration for general sources and archival TV dramas." loading="lazy" />
+            <figcaption>(b) WV-MOS distribution by source group.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/snr-distribution.png" alt="Duration distribution of speech across signal-to-noise ratio ranges." loading="lazy" />
+            <figcaption>(c) Signal-to-noise ratio distribution.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/utterance-duration.png" alt="Duration distribution of utterances, with peaks around 6 to 8 seconds and 19 seconds." loading="lazy" />
+            <figcaption>(d) Utterance-duration distribution.</figcaption>
+          </figure>
+        </div>
+
+        <h3 id="data-samples">Data Samples</h3>
+        <p class="table-intro">Listen to speech samples alongside their Minnan transcripts, Mandarin translations, and speaker information.</p>
+        <div id="dataset-audio-samples"></div>
+      </section>
+
+      <section id="asr">
+        <h2>ASR Leaderboard</h2>
+
+        <h3>Minnan Transcription Results</h3>
+        <p class="table-intro">Results on WS-Min-Eval-ASR. Lower D-CER is better. Light green rows indicate models trained on WenetSpeech-Min.</p>
+        <div class="table-scroll" role="region" aria-label="Minnan ASR results table" tabindex="0">
+          <table class="leaderboard minnan-table">
+            <thead>
+              <tr><th scope="col">Model</th><th scope="col">D-CER (%) ↓</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Hy-ASR-3.0-Preview<sup>†</sup></td><td>32.78</td></tr>
+              <tr><td>CN-MultiDialect-ASR</td><td>18.59</td></tr>
+              <tr><td>Qwen3-ASR</td><td>34.61</td></tr>
+              <tr class="trained"><td>Qwen3-ASR-WSM-Min</td><td><u>17.59</u></td></tr>
+              <tr class="trained"><td>Qwen3-ASR-WSM-Min + internal data</td><td><strong>15.21</strong></td></tr>
+              <tr><td>FireRedASR2-AED</td><td>43.39</td></tr>
+              <tr class="trained"><td>FireRedASR2-AED-WSM</td><td>18.95</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-note"><sup>†</sup> Results obtained via a commercial API.</p>
+
+        <h3>Mandarin Transcription Results</h3>
+        <p class="table-intro">Results on WS-Min-Eval-ASR and the external GigaSpeechBench and MinSpeech test sets. Avg. is the unweighted mean across the three test sets. Lower M-CER is better; higher M-BLEU is better. Light green rows indicate models trained on WenetSpeech-Min.</p>
+        <div class="table-scroll" role="region" aria-label="Mandarin ASR results table" tabindex="0">
+          <table class="leaderboard mandarin-table">
+            <thead>
+              <tr>
+                <th rowspan="2" scope="col">Model</th>
+                <th colspan="2" scope="colgroup">WS-Min-Eval-ASR</th>
+                <th colspan="2" scope="colgroup">GigaSpeechBench</th>
+                <th colspan="2" scope="colgroup">MinSpeech</th>
+                <th colspan="2" scope="colgroup">Avg.</th>
+              </tr>
+              <tr>
+                <th scope="col">M-BLEU ↑</th><th scope="col">M-CER (%) ↓</th>
+                <th scope="col">M-BLEU ↑</th><th scope="col">M-CER (%) ↓</th>
+                <th scope="col">M-BLEU ↑</th><th scope="col">M-CER (%) ↓</th>
+                <th scope="col">M-BLEU ↑</th><th scope="col">M-CER (%) ↓</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="group-separator"><th colspan="9" scope="rowgroup">Mandarin Transcription</th></tr>
+              <tr><td>FunASR-Realtime<sup>†</sup></td><td>39.09</td><td>45.41</td><td>53.37</td><td>32.62</td><td>28.22</td><td>63.23</td><td>40.23</td><td>47.09</td></tr>
+              <tr><td>SeedASR2.0<sup>†</sup></td><td>38.91</td><td>47.58</td><td><u>55.32</u></td><td><u>32.50</u></td><td><strong>68.53</strong></td><td>26.21</td><td><strong>54.25</strong></td><td>35.43</td></tr>
+              <tr><td>Qwen3-ASR-MinSpeech</td><td>20.34</td><td>60.57</td><td>12.39</td><td>71.26</td><td><u>67.94</u></td><td><strong>23.93</strong></td><td>33.56</td><td>51.92</td></tr>
+              <tr class="trained"><td>Qwen3-ASR-WSM-Mandarin</td><td>42.93</td><td>42.56</td><td>51.20</td><td>34.01</td><td>59.82</td><td>29.42</td><td>51.32</td><td>35.33</td></tr>
+              <tr class="trained"><td>Qwen3-ASR-WSM-Mandarin + internal data</td><td><strong>49.39</strong></td><td><strong>36.81</strong></td><td>47.65</td><td>36.66</td><td>65.69</td><td><u>25.68</u></td><td><u>54.24</u></td><td><strong>33.05</strong></td></tr>
+              <tr class="group-separator"><th colspan="9" scope="rowgroup">Paired-Transcript Recognition</th></tr>
+              <tr><td>FireRedASR2-AED</td><td>18.05</td><td>64.40</td><td>36.91</td><td>49.35</td><td>13.60</td><td>85.02</td><td>22.85</td><td>66.26</td></tr>
+              <tr class="trained"><td>FireRedASR2-AED-WSM</td><td><u>46.06</u></td><td><u>39.53</u></td><td><strong>57.40</strong></td><td><strong>28.61</strong></td><td>57.73</td><td>31.85</td><td>53.73</td><td><u>33.33</u></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-note"><sup>†</sup> Results obtained via commercial APIs.</p>
+      </section>
+
+      <section id="tts">
+        <h2>TTS Leaderboard</h2>
+        <p class="table-intro">Results on WS-Min-Eval-TTS. Lower CER is better; higher is better for the other metrics. Light green rows indicate models trained on WenetSpeech-Min.</p>
+        <div class="table-scroll" role="region" aria-label="TTS leaderboard table" tabindex="0">
+          <table class="leaderboard tts-table">
+            <thead>
+              <tr>
+                <th rowspan="2" scope="col">Model</th>
+                <th colspan="5" scope="colgroup">WS-Min-Eval-TTS-Easy</th>
+                <th colspan="5" scope="colgroup">WS-Min-Eval-TTS-Hard</th>
+              </tr>
+              <tr>
+                <th scope="col">CER (%) ↓</th><th scope="col">SIM ↑</th><th scope="col">I-MOS ↑</th><th scope="col">S-MOS ↑</th><th scope="col">A-MOS ↑</th>
+                <th scope="col">CER (%) ↓</th><th scope="col">SIM ↑</th><th scope="col">I-MOS ↑</th><th scope="col">S-MOS ↑</th><th scope="col">A-MOS ↑</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>QwenAudio-3.0-TTS<sup>†</sup></td><td><strong>19.90</strong></td><td>0.672</td><td><u>3.88</u></td><td><strong>3.85</strong></td><td>3.62</td><td><strong>35.09</strong></td><td><u>0.685</u></td><td><strong>3.75</strong></td><td><u>3.73</u></td><td><u>3.70</u></td></tr>
+              <tr><td>Qwen3TTS-Flash<sup>†,‡</sup></td><td>24.44</td><td>--</td><td><strong>3.93</strong></td><td>--</td><td><strong>3.93</strong></td><td>38.02</td><td>--</td><td><strong>3.75</strong></td><td>--</td><td><strong>3.73</strong></td></tr>
+              <tr><td>FireRedTTS3</td><td>33.76</td><td><strong>0.747</strong></td><td>3.30</td><td>3.32</td><td>3.13</td><td>55.33</td><td><strong>0.731</strong></td><td>3.15</td><td>3.39</td><td>3.04</td></tr>
+              <tr><td>VoxCPM2</td><td>28.16</td><td><u>0.707</u></td><td>3.45</td><td>3.54</td><td>3.38</td><td>40.50</td><td>0.681</td><td>3.17</td><td>3.48</td><td>3.36</td></tr>
+              <tr><td>MERaLiON-TTS</td><td>21.25</td><td>0.622</td><td>3.83</td><td>3.73</td><td><u>3.65</u></td><td>37.28</td><td>0.636</td><td>3.58</td><td><u>3.73</u></td><td>3.63</td></tr>
+              <tr><td>CosyVoice3</td><td>63.69</td><td>0.654</td><td>2.13</td><td>2.13</td><td>1.49</td><td>60.35</td><td>0.610</td><td>2.00</td><td>2.40</td><td>1.43</td></tr>
+              <tr class="trained"><td>CosyVoice3-WSM</td><td><u>20.26</u></td><td>0.678</td><td>3.85</td><td><u>3.75</u></td><td><u>3.65</u></td><td><u>35.98</u></td><td>0.669</td><td><u>3.65</u></td><td><strong>3.85</strong></td><td><u>3.70</u></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-note"><sup>†</sup> Results obtained via commercial APIs. <sup>‡</sup> Uses a single fixed speaker; SIM and S-MOS are therefore not evaluated.</p>
+
+        <h3 id="tts-demo">TTS Demo</h3>
+        <p class="table-intro">Each row shows the target text, its reference audio, and synthesized speech from each system. Scroll horizontally to compare the models.</p>
+        <div id="tts-samples" class="tts-samples"></div>
+      </section>
     </main>
+    <script src="assets/tts-samples.js" defer></script>
+    <script src="assets/tts-demo.js" defer></script>
+    <script src="assets/sample-audios.js" defer></script>
+    <script src="assets/sample-audio-demo.js" defer></script>
   </body>
 </html>
