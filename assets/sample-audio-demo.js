@@ -6,11 +6,9 @@
   const grid = document.createElement('div');
   grid.className = 'dataset-sample-grid';
   grid.setAttribute('aria-label', 'Minnan speech samples');
-  const removedSamples = new Set([3, 6, 8, 10, 13, 14, 15, 18, 19, 20, 24, 25, 26, 29, 31, 32, 35, 36, 37, 41, 42, 44, 45, 48]);
 
-  samples.forEach((sample, index) => {
-    const sampleNumber = index + 1;
-    if (removedSamples.has(sampleNumber) || !sample.gender || sample.age == null) return;
+  samples.forEach((sample) => {
+    const sampleNumber = sample.sample_number;
 
     const card = document.createElement('article');
     card.className = 'dataset-sample-card';
