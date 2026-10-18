@@ -1,6 +1,4 @@
-<h1 align="center">WenetSpeech-Min</h1>
-
-<p align="center"><i>A Large-Scale Minnan Speech Corpus with Dual Transcriptions for Dialectal Speech Processing</i></p>
+# WenetSpeech-Min: A Large-Scale Minnan Speech Corpus with Dual Transcriptions for Dialectal Speech Processing
 
 <p align="center">
   Haoyu Zhang<sup>1,*</sup>, Chunjiang He<sup>1,*</sup>, Hongtao Li<sup>2</sup>, Zeyu Zhu<sup>1</sup>, Qituan Shangguan<sup>2</sup>, Chengyou Wang<sup>1</sup>, Jingbin Hu<sup>1</sup>, Ziyu Zhang<sup>1</sup>, Bingshen Mu<sup>1</sup>, Yanbo Wang<sup>3</sup>, Shuai Wang<sup>2,4,8</sup>, Jinhui Ye<sup>4</sup>, Chengdong Liang<sup>4</sup>, Binbin Zhang<sup>4</sup>, Pengcheng Zhu<sup>4</sup>, Chuang Ding<sup>5</sup>, Qiangze Feng<sup>6</sup>, Qingyang Hong<sup>7</sup>, Liumeng Xue<sup>2,8</sup>, Lei Xie<sup>1,†</sup>
@@ -22,7 +20,7 @@
 
 ## Overview
 
-WenetSpeech-Min is an open-source, large-scale Minnan speech corpus collected from diverse online media. It contains approximately **10,000 hours** of real-world speech in **5,121,249 utterances**. Every utterance is paired with a Minnan transcript and a Mandarin transcript, enabling both dialect-preserving recognition and readable Mandarin-output recognition.
+WenetSpeech-Min is an open-source, large-scale Minnan speech corpus collected from diverse online media. It contains approximately **10,000 hours** of real-world speech. Every utterance is paired with a Minnan transcript and a Mandarin transcript, enabling both dialect-preserving recognition and readable Mandarin-output recognition.
 
 The release also provides reproducible benchmarks for paired-transcript ASR and Minnan TTS, together with models trained on WenetSpeech-Min.
 
