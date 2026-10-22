@@ -265,6 +265,75 @@ sup {
   margin: 27px 0 0;
 }
 
+.video-card {
+  position: relative;
+  display: block;
+  max-width: 760px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #dce7e0;
+  border-radius: 8px;
+  background: #18382c;
+  box-shadow: 0 8px 22px rgba(31, 71, 51, 0.12);
+  aspect-ratio: 16 / 9;
+}
+
+.video-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 220ms ease, opacity 220ms ease;
+}
+
+.video-card__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #fff;
+  background: rgba(19, 48, 36, 0.22);
+  transition: background 220ms ease;
+}
+
+.video-card__play {
+  display: grid;
+  width: 58px;
+  height: 42px;
+  padding-left: 3px;
+  place-items: center;
+  border-radius: 10px;
+  background: #ff0033;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.32);
+  font-size: 1.15rem;
+}
+
+.video-card__label {
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+}
+
+.video-card:hover img,
+.video-card:focus-visible img {
+  opacity: 0.86;
+  transform: scale(1.025);
+}
+
+.video-card:hover .video-card__overlay,
+.video-card:focus-visible .video-card__overlay {
+  background: rgba(19, 48, 36, 0.4);
+}
+
+.video-card:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 4px;
+}
+
 .pipeline-figure img {
   display: block;
   width: 100%;
