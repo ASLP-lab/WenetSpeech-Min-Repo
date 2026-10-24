@@ -109,17 +109,17 @@ Results below follow the paper's evaluation protocol. Lower is better for D-CER 
 
 ### Mandarin Transcription
 
-Each entry reports **M-BLEU ↑ / M-CER ↓**.
+Each entry reports **M-BLEU ↑ / M-CER ↓**; GigaSpeech denotes GigaSpeechBench.
 
-| Model | WS-Min | GigaSpeechBench | MinSpeech | Avg. |
+| Model | WS-Min | GigaSpeech | MinSpeech | Avg. |
 | --- | ---: | ---: | ---: | ---: |
-| FunASR-Realtime† | 39.09 / 45.41 | 53.37 / 32.62 | 28.22 / 63.23 | 40.23 / 47.09 |
-| SeedASR2.0† | 38.91 / 47.58 | 55.32 / 32.50 | **68.53 / 26.21** | **54.25** / 35.43 |
-| Qwen3-ASR-MinSpeech | 20.34 / 60.57 | 12.39 / 71.26 | 67.94 / 23.93 | 33.56 / 51.92 |
-| Qwen3-ASR-WSM-Mandarin | 42.93 / 42.56 | 51.20 / 34.01 | 59.82 / 29.42 | 51.32 / 35.33 |
-| **Qwen3-ASR-WSM-Mandarin + internal data** | **49.39 / 36.81** | 47.65 / 36.66 | 65.69 / 26.21 | 54.24 / **33.05** |
-| FireRedASR2-AED | 18.05 / 64.40 | 36.91 / 49.35 | 13.60 / 85.02 | 22.85 / 66.26 |
-| FireRedASR2-AED-WSM | 46.06 / 39.53 | **57.73 / 28.61** | 57.73 / 31.85 | 53.73 / 33.33 |
+| FunASR-Realtime† | 39.09/45.41 | 53.37/32.62 | 28.22/63.23 | 40.23/47.09 |
+| SeedASR2.0† | 38.91/47.58 | 55.32/32.50 | **68.53/26.21** | **54.25**/35.43 |
+| Qwen3-ASR-MinSpeech | 20.34/60.57 | 12.39/71.26 | 67.94/23.93 | 33.56/51.92 |
+| Qwen3-ASR-WSM-Mandarin | 42.93/42.56 | 51.20/34.01 | 59.82/29.42 | 51.32/35.33 |
+| **Qwen3-ASR-WSM-Mandarin<br>+ internal data** | **49.39/36.81** | 47.65/36.66 | 65.69/26.21 | 54.24/**33.05** |
+| FireRedASR2-AED | 18.05/64.40 | 36.91/49.35 | 13.60/85.02 | 22.85/66.26 |
+| FireRedASR2-AED-WSM | 46.06/39.53 | **57.73/28.61** | 57.73/31.85 | 53.73/33.33 |
 
 ## TTS Leaderboard
 
