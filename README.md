@@ -109,15 +109,30 @@ Results below follow the paper's evaluation protocol. Lower is better for D-CER 
 
 ### Mandarin Transcription
 
-| Model | WS-Min M-BLEU ↑ | WS-Min M-CER ↓ | GigaSpeechBench M-BLEU ↑ | GigaSpeechBench M-CER ↓ | MinSpeech M-BLEU ↑ | MinSpeech M-CER ↓ | Avg. M-BLEU ↑ | Avg. M-CER ↓ |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| FunASR-Realtime† | 39.09 | 45.41 | 53.37 | 32.62 | 28.22 | 63.23 | 40.23 | 47.09 |
-| SeedASR2.0† | 38.91 | 47.58 | 55.32 | 32.50 | **68.53** | **26.21** | **54.25** | 35.43 |
-| Qwen3-ASR-MinSpeech | 20.34 | 60.57 | 12.39 | 71.26 | 67.94 | 23.93 | 33.56 | 51.92 |
-| Qwen3-ASR-WSM-Mandarin | 42.93 | 42.56 | 51.20 | 34.01 | 59.82 | 29.42 | 51.32 | 35.33 |
-| **Qwen3-ASR-WSM-Mandarin + internal data** | **49.39** | **36.81** | 47.65 | 36.66 | 65.69 | 26.21 | 54.24 | **33.05** |
-| FireRedASR2-AED | 18.05 | 64.40 | 36.91 | 49.35 | 13.60 | 85.02 | 22.85 | 66.26 |
-| FireRedASR2-AED-WSM | 46.06 | 39.53 | **57.73** | **28.61** | 57.73 | 31.85 | 53.73 | 33.33 |
+<table width="100%">
+  <colgroup>
+    <col width="32%">
+    <col width="17%"><col width="17%"><col width="17%"><col width="17%">
+  </colgroup>
+  <thead>
+    <tr>
+      <th align="left">Model</th>
+      <th align="center">WS-Min<br>M-BLEU ↑ / M-CER ↓</th>
+      <th align="center">GigaSpeechBench<br>M-BLEU ↑ / M-CER ↓</th>
+      <th align="center">MinSpeech<br>M-BLEU ↑ / M-CER ↓</th>
+      <th align="center">Avg.<br>M-BLEU ↑ / M-CER ↓</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>FunASR-Realtime†</td><td align="center">39.09 / 45.41</td><td align="center">53.37 / 32.62</td><td align="center">28.22 / 63.23</td><td align="center">40.23 / 47.09</td></tr>
+    <tr><td>SeedASR2.0†</td><td align="center">38.91 / 47.58</td><td align="center">55.32 / 32.50</td><td align="center"><strong>68.53 / 26.21</strong></td><td align="center"><strong>54.25</strong> / 35.43</td></tr>
+    <tr><td>Qwen3-ASR-MinSpeech</td><td align="center">20.34 / 60.57</td><td align="center">12.39 / 71.26</td><td align="center">67.94 / 23.93</td><td align="center">33.56 / 51.92</td></tr>
+    <tr><td>Qwen3-ASR-WSM-Mandarin</td><td align="center">42.93 / 42.56</td><td align="center">51.20 / 34.01</td><td align="center">59.82 / 29.42</td><td align="center">51.32 / 35.33</td></tr>
+    <tr><td><strong>Qwen3-ASR-WSM-Mandarin + internal data</strong></td><td align="center"><strong>49.39 / 36.81</strong></td><td align="center">47.65 / 36.66</td><td align="center">65.69 / 26.21</td><td align="center">54.24 / <strong>33.05</strong></td></tr>
+    <tr><td>FireRedASR2-AED</td><td align="center">18.05 / 64.40</td><td align="center">36.91 / 49.35</td><td align="center">13.60 / 85.02</td><td align="center">22.85 / 66.26</td></tr>
+    <tr><td>FireRedASR2-AED-WSM</td><td align="center">46.06 / 39.53</td><td align="center"><strong>57.73 / 28.61</strong></td><td align="center">57.73 / 31.85</td><td align="center">53.73 / 33.33</td></tr>
+  </tbody>
+</table>
 
 ## TTS Leaderboard
 
