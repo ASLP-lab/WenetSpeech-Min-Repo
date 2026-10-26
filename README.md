@@ -184,7 +184,7 @@ If you are interested in leaving a message to our research team, feel free to em
 
 <p align="center">
   <span style="display: inline-block; margin-right: 10px;">
-    <img src="figs/Wechat_1.png" width="300" alt="WeChat Group QR Code"/>
+    <img src="figs/Wechat_1.jpg" width="300" alt="WeChat Group QR Code"/>
   </span>
    <span style="display: inline-block; margin-right: 10px;">
     <img src="figs/Wechat_person.jpg" width="300" alt="WeChat Group QR Code"/>
